@@ -9,14 +9,22 @@ class AllegroScraper(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.setWindowTitle("Allegro Scraper")
+        self.setWindowTitle("Allegro Finder")
         self.setGeometry(100, 100, 800, 600)
 
         self.search_label = QLabel("Wyszukiwanie:")
         self.search_box = QLineEdit()
-        self.search_button = QPushButton("Szukaj")
+        self.search_button = QPushButton("Szukaj TOP10 aukcji z słowem kluczowym")
         self.search_result_label = QLabel("Wyniki wyszukiwania:")
         self.search_result_list = QListWidget()
+        
+        self.search_label.setStyleSheet('background-color:yellow; color: red; font-weight:bold; font-size: 20px;')
+        self.search_label.setAlignment(Qt.AlignCenter)
+        self.search_box.setStyleSheet('background-color:gray; color: black; font-weight:bold; font-size: 20px;')
+        self.search_button.setStyleSheet('background-color:yellow; color: red; font-weight:bold; font-size: 20px;')
+        self.search_result_label.setStyleSheet('background-color:yellow; color: red; font-weight:bold; font-size: 20px;')
+        self.search_result_label.setAlignment(Qt.AlignCenter)
+        self.search_result_list.setStyleSheet('background-color:gray; color: black; font-weight:bold; font-size: 20px;')
 
         layout = QVBoxLayout()
         layout.addWidget(self.search_label)
@@ -47,5 +55,6 @@ class AllegroScraper(QWidget):
 if __name__ == "__main__":
     app = QApplication([])
     scraper = AllegroScraper()
+    scraper.setStyleSheet('background-color:black;')
     scraper.show()
-    app.exec_()
+    app.exec()
